@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 
 const Header = () => {
   return (
-    <div className="mt-12">
+    <div className="mt-12 mb-16">
       <motion.h1
         animate={{ fontSize: "40px" }}
         transition={{ type: "spring", stiffness: 150 }}
