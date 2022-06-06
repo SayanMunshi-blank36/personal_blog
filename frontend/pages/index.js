@@ -2,6 +2,7 @@ import Head from "next/head";
 import Header from "../components/Header";
 import Intro from "../components/Intro";
 import CategoryFeaturedBlogs from "../components/CategoryFeaturedBlogs";
+import Footer from "../components/Footer";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -27,8 +28,9 @@ export default function Home() {
         category="travel"
       />
       <div className="mx-auto w-[58rem]">
-        <hr className="w-full border-none h-[1px] text-primary bg-primary mb-16" />
+        <hr className="w-full border-none h-[1px] text-primary bg-primary mb-8" />
       </div>
+      <Footer />
     </div>
   );
 }

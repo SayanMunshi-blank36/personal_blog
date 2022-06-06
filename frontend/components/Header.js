@@ -28,32 +28,31 @@ const Header = () => {
         className="flex items-center justify-center my-6"
       >
         <motion.li
-          whileHover={{ scale: 1.2, color: "red" }}
-          transition={{ type: "tween" }}
+          whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
           Tech
         </motion.li>
         <motion.li
-          whileHover={{ scale: 1.2, color: "red" }}
+          whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
           Otaku
         </motion.li>
         <motion.li
-          whileHover={{ scale: 1.2, color: "red" }}
+          whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
           Travel
         </motion.li>
         <motion.li
-          whileHover={{ scale: 1.2, color: "red" }}
+          whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
           Contact
         </motion.li>
         <motion.li
-          whileHover={{ scale: 1.2, color: "red" }}
+          whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
           Newsletter
