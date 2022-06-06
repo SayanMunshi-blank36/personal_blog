@@ -32,19 +32,19 @@ const Header = () => {
           transition={{ type: "tween" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
-          Tech Blogs
+          Tech
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "red" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
-          Otaku Blogs
+          Otaku
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "red" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer"
         >
-          Travel Blogs
+          Travel
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "red" }}

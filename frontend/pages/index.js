@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Header from "../components/Header";
 import Intro from "../components/Intro";
+import CategoryFeaturedBlogs from "../components/CategoryFeaturedBlogs";
 import styles from "../styles/Home.module.css";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       </Head>
       <Header />
       <Intro />
+      <CategoryFeaturedBlogs category="tech" />
     </div>
   );
 }
