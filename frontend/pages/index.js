@@ -27,7 +27,7 @@ export default function Home() {
         categoryDesc="Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel iste distinctio fugiat quisquam reprehenderit sequi voluptate inventore libero quo cum?"
         category="travel"
       />
-      <div className="mx-auto w-[58rem]">
+      <div className="mx-auto w-11/12 lg:w-[58rem]">
         <hr className="w-full border-none h-[1px] text-primary bg-primary mb-8" />
       </div>
       <Footer />
