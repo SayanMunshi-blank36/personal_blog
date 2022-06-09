@@ -26,14 +26,15 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
           duration: 0.6,
         },
       });
-    } else {
-      animation.start({
-        x: "-100vw",
-      });
-      animation2.start({
-        opacity: 0,
-      });
     }
+    // else {
+    //   animation.start({
+    //     x: "-100vw",
+    //   });
+    //   animation2.start({
+    //     opacity: 0,
+    //   });
+    // }
   }, [inView]);
 
   return (
