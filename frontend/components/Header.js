@@ -18,7 +18,7 @@ const Header = () => {
         transition={{ delay: 0.3 }}
         className="flex items-center justify-center font-light"
       >
-        <div className="flex text-2xl lg:text-4xl">
+        <div className="flex text-xl sm:text-2xl lg:text-4xl">
           <li className="mr-2 font-light">Developer</li> |
           <li className="ml-2 mr-2 font-light">Otaku</li> |
           <li className="ml-2 font-light">Traveller</li>
@@ -28,37 +28,37 @@ const Header = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="flex items-center justify-center my-6"
+        className="flex items-center justify-center my-6 flex-wrap"
       >
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer"
+          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-base lg:text-xl">Tech</p>
+          <p className="text-sm sm:text-base lg:text-xl">Tech</p>
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer"
+          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-base lg:text-xl">Otaku</p>
+          <p className="text-sm sm:text-base lg:text-xl">Otaku</p>
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer"
+          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-base lg:text-xl">Travel</p>
+          <p className="text-sm sm:text-base lg:text-xl">Travel</p>
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer"
+          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-base lg:text-xl">Contact</p>
+          <p className="text-sm sm:text-base lg:text-xl">Contact</p>
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer"
+          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-base lg:text-xl">Newsletter</p>
+          <p className="text-sm sm:text-base lg:text-xl">Newsletter</p>
         </motion.li>
       </motion.ul>
     </div>
