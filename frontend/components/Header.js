@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-const Header = () => {
+const Header = ({ categories }) => {
   return (
     <div className="mt-12 mb-16">
       <motion.h1
@@ -30,24 +30,19 @@ const Header = () => {
         transition={{ delay: 0.6 }}
         className="flex items-center justify-center my-6 flex-wrap"
       >
-        <motion.li
-          whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
-        >
-          <p className="text-sm sm:text-base lg:text-xl">Tech</p>
-        </motion.li>
-        <motion.li
-          whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
-        >
-          <p className="text-sm sm:text-base lg:text-xl">Otaku</p>
-        </motion.li>
-        <motion.li
-          whileHover={{ scale: 1.2, color: "#ff0000" }}
-          className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
-        >
-          <p className="text-sm sm:text-base lg:text-xl">Travel</p>
-        </motion.li>
+        {categories.map((category) => {
+          return (
+            <motion.li
+              whileHover={{ scale: 1.2, color: "#ff0000" }}
+              className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
+              key={category.id}
+            >
+              <p className="text-sm sm:text-base lg:text-xl">
+                {category.attributes.name}
+              </p>
+            </motion.li>
+          );
+        })}
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer py-2"

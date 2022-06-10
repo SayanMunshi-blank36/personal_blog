@@ -3,7 +3,7 @@ import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 
-const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
+const CategoryFeaturedBlogs = ({ category }) => {
   const { ref, inView } = useInView();
   const animation = useAnimation();
   const animation2 = useAnimation();
@@ -42,10 +42,10 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
         animate={animation}
         className="w-fit text-3xl lg:text-5xl font-extrabold text-secondary mb-4 border-b-4 border-b-secondary"
       >
-        {category.toUpperCase()} BLOGS
+        {category.attributes.name.toUpperCase()} BLOGS
       </motion.h2>
       <motion.p animate={animation2} className="mb-4 text-lg">
-        {categoryDesc}
+        {category.attributes.description}
       </motion.p>
       <motion.div
         animate={animation2}
@@ -62,7 +62,7 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
           </div>
           <div className="mx-auto w-3/4">
             <p className="mt-4 text-base lg:text-xl text-accent font-bold border-2 border-accent w-fit px-1 rounded-lg">
-              {category.toUpperCase()}
+              {category.attributes.name.toUpperCase()}
             </p>
             <h3 className="my-4 text-base lg:text-xl font-bold hover:underline cursor-pointer">
               Web Development: The Booming Field in Modern World
@@ -84,7 +84,7 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
               height={300}
             />
             <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.toUpperCase()}
+              {category.attributes.name.toUpperCase()}
             </p>
             <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
               Web Development: The Booming Field in Modern World
@@ -99,7 +99,7 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
               height={300}
             />
             <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.toUpperCase()}
+              {category.attributes.name.toUpperCase()}
             </p>
             <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
               Web Development: The Booming Field in Modern World
@@ -114,7 +114,7 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
               height={300}
             />
             <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.toUpperCase()}
+              {category.attributes.name.toUpperCase()}
             </p>
             <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
               Web Development: The Booming Field in Modern World
@@ -129,7 +129,7 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
               height={300}
             />
             <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.toUpperCase()}
+              {category.attributes.name.toUpperCase()}
             </p>
             <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
               Web Development: The Booming Field in Modern World
@@ -142,7 +142,7 @@ const CategoryFeaturedBlogs = ({ category, categoryDesc }) => {
         animate={animation}
         className="btn btn-primary text-sm lg:text-base"
       >
-        Read More {category} Blogs
+        Read More {category.attributes.name} Blogs
       </motion.button>
     </div>
   );
