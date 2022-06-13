@@ -2,7 +2,6 @@ import Head from "next/head";
 import Intro from "../components/Intro";
 import CategoryFeaturedBlogs from "../components/CategoryFeaturedBlogs";
 import styles from "../styles/Home.module.css";
-import Link from "next/link";
 
 export default function Home({
   categories,

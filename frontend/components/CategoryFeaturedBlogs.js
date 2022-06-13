@@ -56,21 +56,27 @@ const CategoryFeaturedBlogs = ({ category, blogs }) => {
         className="grid lg:grid-cols-2 gap-8 grid-cols-1"
       >
         <div>
-          <div className="mx-auto w-3/4 lg:mx-0 lg:w-full">
-            <Image
-              src={`http://localhost:1337${blogs[0].attributes.cover.data.attributes.url}`}
-              width={500}
-              height={300}
-              className="rounded-md mx-auto"
-            />
-          </div>
+          <Link href={`/blog/${blogs[0].attributes.slug}`}>
+            <a className="mx-auto w-3/4 lg:mx-0 lg:w-full">
+              <Image
+                src={`http://localhost:1337${blogs[0].attributes.cover.data.attributes.url}`}
+                width={500}
+                height={300}
+                className="rounded-md mx-auto hover:opacity-95"
+              />
+            </a>
+          </Link>
           <div className="mx-auto w-3/4">
             <p className="mt-4 text-base lg:text-xl text-accent font-bold border-2 border-accent w-fit px-1 rounded-lg">
               {category.attributes.name.toUpperCase()}
             </p>
-            <h3 className="my-4 text-base lg:text-xl font-bold hover:underline cursor-pointer">
-              {blogs[0].attributes.title.toUpperCase()}
-            </h3>
+            <Link href={`/blog/${blogs[0].attributes.slug}`}>
+              <a>
+                <h3 className="my-4 text-base lg:text-xl font-bold hover:underline cursor-pointer">
+                  {blogs[0].attributes.title.toUpperCase()}
+                </h3>
+              </a>
+            </Link>
             <p className="text-sm lg:text-base">
               {blogs[0].attributes.description}
             </p>
@@ -83,18 +89,27 @@ const CategoryFeaturedBlogs = ({ category, blogs }) => {
           {iterativeBlogs.map((blog) => {
             return (
               <div key={blog.id}>
-                <Image
-                  className="rounded-md"
-                  src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
-                  width={500}
-                  height={300}
-                />
+                <Link href={`/blog/${blog.attributes.slug}`}>
+                  <a>
+                    <Image
+                      className="rounded-md"
+                      src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
+                      width={500}
+                      height={300}
+                      className="hover:opacity-95"
+                    />
+                  </a>
+                </Link>
                 <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
                   {category.attributes.name.toUpperCase()}
                 </p>
-                <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
-                  {blog.attributes.title.toUpperCase()}
-                </h3>
+                <Link href={`/blog/${blog.attributes.slug}`}>
+                  <a>
+                    <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
+                      {blog.attributes.title.toUpperCase()}
+                    </h3>
+                  </a>
+                </Link>
                 <p className="my-4 lg:text-base text-sm">
                   {moment(blog.attributes.createdAt).format("MMM DD, YYYY")}
                 </p>

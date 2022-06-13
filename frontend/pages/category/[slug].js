@@ -3,6 +3,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import moment from "moment";
+import Link from "next/link";
 
 const Slug = ({ blogs }) => {
   const router = useRouter();
@@ -28,17 +29,26 @@ const Slug = ({ blogs }) => {
                 className="md:flex w-11/12 mx-auto items-center justify-center mb-8"
               >
                 <div className="mx-4">
-                  <Image
-                    src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
-                    alt="img"
-                    width={400}
-                    height={200}
-                  />
+                  <Link href={`/blog/${blog.attributes.slug}`}>
+                    <a>
+                      <Image
+                        src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
+                        alt="img"
+                        width={400}
+                        height={200}
+                        className="hover:opacity-95"
+                      />
+                    </a>
+                  </Link>
                 </div>
                 <div className="mx-4">
-                  <h2 className="font-extrabold text-xl md:text-2xl mb-2">
-                    {blog.attributes.title.toUpperCase()}
-                  </h2>
+                  <Link href={`/blog/${blog.attributes.slug}`}>
+                    <a>
+                      <h2 className="font-extrabold text-xl md:text-2xl mb-2 hover:underline">
+                        {blog.attributes.title.toUpperCase()}
+                      </h2>
+                    </a>
+                  </Link>
                   <p className="md:text-lg mb-2">
                     {blog.attributes.description}
                   </p>
