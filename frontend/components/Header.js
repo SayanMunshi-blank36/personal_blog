@@ -1,17 +1,24 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 const Header = ({ categories }) => {
   return (
     <div className="mt-12 mb-16">
-      <motion.h1
-        animate={{ fontSize: "40px" }}
-        transition={{ type: "spring", stiffness: 150 }}
-        className="mx-4 text-center font-kanit font-bold tracking-wide"
-      >
-        <span className="mr-1 text-primary text-3xl lg:text-5xl">Sayan</span>
-        <span className="text-3xl lg:text-5xl">Munshi</span>
-      </motion.h1>
+      <Link href="/">
+        <a>
+          <motion.h1
+            animate={{ fontSize: "40px" }}
+            transition={{ type: "spring", stiffness: 150 }}
+            className="mx-4 text-center font-kanit font-bold tracking-wide"
+          >
+            <span className="mr-1 text-primary text-3xl lg:text-5xl">
+              Sayan
+            </span>
+            <span className="text-3xl lg:text-5xl">Munshi</span>
+          </motion.h1>
+        </a>
+      </Link>
       <motion.ul
         initial={{ opacity: 0 }}
         animate={{ fontSize: "30px", lineHeight: "36px", opacity: 1 }}
@@ -47,13 +54,17 @@ const Header = ({ categories }) => {
           whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-sm sm:text-base lg:text-xl">Contact</p>
+          <Link href="/contact">
+            <a className="text-sm sm:text-base lg:text-xl">Contact</a>
+          </Link>
         </motion.li>
         <motion.li
           whileHover={{ scale: 1.2, color: "#ff0000" }}
           className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
         >
-          <p className="text-sm sm:text-base lg:text-xl">Newsletter</p>
+          <Link href="/subscribe">
+            <a className="text-sm sm:text-base lg:text-xl">Subscribe</a>
+          </Link>
         </motion.li>
       </motion.ul>
     </div>
