@@ -5,7 +5,12 @@ import CategoryFeaturedBlogs from "../components/CategoryFeaturedBlogs";
 import Footer from "../components/Footer";
 import styles from "../styles/Home.module.css";
 
-export default function Home({ categories }) {
+export default function Home({
+  categories,
+  techBlogs,
+  otakuBlogs,
+  travelBlogs,
+}) {
   return (
     <div>
       <Head>
@@ -16,7 +21,19 @@ export default function Home({ categories }) {
       <Header categories={categories} />
       <Intro />
       {categories.map((category) => {
-        return <CategoryFeaturedBlogs key={category.id} category={category} />;
+        let blogs;
+
+        if (category.attributes.name === "Tech") blogs = techBlogs;
+        else if (category.attributes.name === "Otaku") blogs = otakuBlogs;
+        else if (category.attributes.name === "Travel") blogs = travelBlogs;
+
+        return (
+          <CategoryFeaturedBlogs
+            key={category.id}
+            category={category}
+            blogs={blogs}
+          />
+        );
       })}
       <div className="mx-auto w-11/12 lg:w-[58rem]">
         <hr className="w-full border-none h-[1px] text-primary bg-primary mb-8" />
@@ -32,6 +49,9 @@ export async function getServerSideProps(context) {
   };
 
   let categories;
+  let techBlogs;
+  let otakuBlogs;
+  let travelBlogs;
 
   const categoryArrRes = await fetch(
     `http://localhost:1337/api/categories?populate=*`,
@@ -40,10 +60,38 @@ export async function getServerSideProps(context) {
     }
   );
 
+  const techBlogsRes = await fetch(
+    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Tech&pagination[limit]=5`,
+    {
+      headers: headers,
+    }
+  );
+
+  const otakuBlogsRes = await fetch(
+    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Otaku&pagination[limit]=5`,
+    {
+      headers: headers,
+    }
+  );
+
+  const travelBlogsRes = await fetch(
+    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Travel&pagination[limit]=5`,
+    {
+      headers: headers,
+    }
+  );
+
   const categoryArr = await categoryArrRes.json();
+  const techBlogsArr = await techBlogsRes.json();
+  const otakuBlogsArr = await otakuBlogsRes.json();
+  const travelBlogsArr = await travelBlogsRes.json();
+
   categories = categoryArr.data;
+  techBlogs = techBlogsArr.data;
+  otakuBlogs = otakuBlogsArr.data;
+  travelBlogs = travelBlogsArr.data;
 
   return {
-    props: { categories }, // will be passed to the page component as props
+    props: { categories, techBlogs, otakuBlogs, travelBlogs }, // will be passed to the page component as props
   };
 }

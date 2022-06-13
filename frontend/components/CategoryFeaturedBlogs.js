@@ -2,8 +2,9 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import moment from "moment";
 
-const CategoryFeaturedBlogs = ({ category }) => {
+const CategoryFeaturedBlogs = ({ category, blogs }) => {
   const { ref, inView } = useInView();
   const animation = useAnimation();
   const animation2 = useAnimation();
@@ -36,6 +37,8 @@ const CategoryFeaturedBlogs = ({ category }) => {
     }
   }, [inView]);
 
+  const iterativeBlogs = blogs.slice(1);
+
   return (
     <div ref={ref} className="my-20 mx-auto w-11/12 lg:w-[58rem]">
       <motion.h2
@@ -54,7 +57,7 @@ const CategoryFeaturedBlogs = ({ category }) => {
         <div>
           <div className="mx-auto w-3/4 lg:mx-0 lg:w-full">
             <Image
-              src="/webdevlopment.jpg"
+              src={`http://localhost:1337${blogs[0].attributes.cover.data.attributes.url}`}
               width={500}
               height={300}
               className="rounded-md mx-auto"
@@ -65,18 +68,40 @@ const CategoryFeaturedBlogs = ({ category }) => {
               {category.attributes.name.toUpperCase()}
             </p>
             <h3 className="my-4 text-base lg:text-xl font-bold hover:underline cursor-pointer">
-              Web Development: The Booming Field in Modern World
+              {blogs[0].attributes.title.toUpperCase()}
             </h3>
             <p className="text-sm lg:text-base">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum,
-              voluptates minus temporibus deleniti nobis harum non veniam eaque
-              dolorum iste nesciunt corporis mollitia minima aliquam?
+              {blogs[0].attributes.description}
             </p>
-            <p className="my-4 lg:text-base text-sm">June 6, 2022</p>
+            <p className="my-4 lg:text-base text-sm">
+              {moment(blogs[0].attributes.createdAt).format("MMM DD, YYYY")}
+            </p>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-x-4">
-          <div>
+          {iterativeBlogs.map((blog) => {
+            return (
+              <div key={blog.id}>
+                <Image
+                  className="rounded-md"
+                  src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
+                  width={500}
+                  height={300}
+                />
+                <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
+                  {category.attributes.name.toUpperCase()}
+                </p>
+                <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
+                  {blog.attributes.title.toUpperCase()}
+                </h3>
+                <p className="my-4 lg:text-base text-sm">
+                  {moment(blog.attributes.createdAt).format("MMM DD, YYYY")}
+                </p>
+              </div>
+            );
+          })}
+
+          {/* <div>
             <Image
               className="rounded-md"
               src="/webdevlopment.jpg"
@@ -120,22 +145,7 @@ const CategoryFeaturedBlogs = ({ category }) => {
               Web Development: The Booming Field in Modern World
             </h3>
             <p className="my-4 lg:text-base text-sm">June 6, 2022</p>
-          </div>
-          <div>
-            <Image
-              className="rounded-md"
-              src="/webdevlopment.jpg"
-              width={500}
-              height={300}
-            />
-            <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.attributes.name.toUpperCase()}
-            </p>
-            <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
-              Web Development: The Booming Field in Modern World
-            </h3>
-            <p className="my-4 lg:text-base text-sm">June 6, 2022</p>
-          </div>
+          </div> */}
         </div>
       </motion.div>
       <motion.button
