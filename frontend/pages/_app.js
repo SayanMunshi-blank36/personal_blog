@@ -1,11 +1,16 @@
 import "../styles/globals.css";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 function MyApp({ Component, pageProps, categories }) {
   return (
     <>
       <Header categories={categories} />
       <Component {...pageProps} />
+      <div className="mx-auto w-11/12 lg:w-[58rem]">
+        <hr className="w-full border-none h-[1px] text-primary bg-primary mb-8" />
+      </div>
+      <Footer />
     </>
   );
 }

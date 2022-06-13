@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Intro from "../components/Intro";
 import CategoryFeaturedBlogs from "../components/CategoryFeaturedBlogs";
-import Footer from "../components/Footer";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
 
@@ -34,10 +33,6 @@ export default function Home({
           />
         );
       })}
-      <div className="mx-auto w-11/12 lg:w-[58rem]">
-        <hr className="w-full border-none h-[1px] text-primary bg-primary mb-8" />
-      </div>
-      <Footer />
     </div>
   );
 }

@@ -3,6 +3,7 @@ import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import moment from "moment";
+import Link from "next/link";
 
 const CategoryFeaturedBlogs = ({ category, blogs }) => {
   const { ref, inView } = useInView();
@@ -100,59 +101,15 @@ const CategoryFeaturedBlogs = ({ category, blogs }) => {
               </div>
             );
           })}
-
-          {/* <div>
-            <Image
-              className="rounded-md"
-              src="/webdevlopment.jpg"
-              width={500}
-              height={300}
-            />
-            <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.attributes.name.toUpperCase()}
-            </p>
-            <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
-              Web Development: The Booming Field in Modern World
-            </h3>
-            <p className="my-4 lg:text-base text-sm">June 6, 2022</p>
-          </div>
-          <div>
-            <Image
-              className="rounded-md"
-              src="/webdevlopment.jpg"
-              width={500}
-              height={300}
-            />
-            <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.attributes.name.toUpperCase()}
-            </p>
-            <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
-              Web Development: The Booming Field in Modern World
-            </h3>
-            <p className="my-4 lg:text-base text-sm">June 6, 2022</p>
-          </div>
-          <div>
-            <Image
-              className="rounded-md"
-              src="/webdevlopment.jpg"
-              width={500}
-              height={300}
-            />
-            <p className="mt-2 text-xs lg:text-sm text-accent font-semibold w-fit px-1">
-              {category.attributes.name.toUpperCase()}
-            </p>
-            <h3 className="my-4 text-sm lg:text-base font-bold hover:underline cursor-pointer">
-              Web Development: The Booming Field in Modern World
-            </h3>
-            <p className="my-4 lg:text-base text-sm">June 6, 2022</p>
-          </div> */}
         </div>
       </motion.div>
       <motion.button
         animate={animation}
         className="btn btn-primary text-sm lg:text-base"
       >
-        Read More {category.attributes.name} Blogs
+        <Link href={`/category/${category.attributes.name}`}>
+          <a>Read More {category.attributes.name} Blogs</a>
+        </Link>
       </motion.button>
     </div>
   );

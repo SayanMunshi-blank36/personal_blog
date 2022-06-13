@@ -44,9 +44,11 @@ const Header = ({ categories }) => {
               className="mx-3 uppercase text-md font-medium cursor-pointer py-2"
               key={category.id}
             >
-              <p className="text-sm sm:text-base lg:text-xl">
-                {category.attributes.name}
-              </p>
+              <Link href={`/category/${category.attributes.name}`}>
+                <a className="text-sm sm:text-base lg:text-xl">
+                  {category.attributes.name}
+                </a>
+              </Link>
             </motion.li>
           );
         })}
