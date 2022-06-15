@@ -21,7 +21,11 @@ const Contact = () => {
             </p>
           </div>
           <div className="lg:w-1/2 md:w-2/3 mx-auto">
-            <div className="flex flex-wrap -m-2">
+            <form
+              action="https://formsubmit.co/munshisayan36@gmail.com"
+              method="POST"
+              className="flex flex-wrap -m-2"
+            >
               <div className="p-2 w-1/2">
                 <div className="relative">
                   <label
@@ -69,12 +73,20 @@ const Contact = () => {
                   ></textarea>
                 </div>
               </div>
+              <input
+                type="hidden"
+                name="_next"
+                value="http://localhost:3000/contact"
+              />
               <div className="p-2 w-full">
-                <button className="btn btn-primary flex mx-auto text-white border-0 py-2 px-8 focus:outline-none hover:btn-secondary rounded text-lg">
+                <button
+                  type="submit"
+                  className="btn btn-primary flex mx-auto text-white border-0 py-2 px-8 focus:outline-none hover:btn-secondary rounded text-lg"
+                >
                   Submit
                 </button>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </section>
