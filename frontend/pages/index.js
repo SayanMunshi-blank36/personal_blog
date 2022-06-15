@@ -47,28 +47,28 @@ export async function getServerSideProps(context) {
   let travelBlogs;
 
   const categoryArrRes = await fetch(
-    `http://localhost:1337/api/categories?populate=*`,
+    `${process.env.API_URL}api/categories?populate=*`,
     {
       headers: headers,
     }
   );
 
   const techBlogsRes = await fetch(
-    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Tech&pagination[limit]=5`,
+    `${process.env.API_URL}api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Tech&pagination[limit]=5`,
     {
       headers: headers,
     }
   );
 
   const otakuBlogsRes = await fetch(
-    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Otaku&pagination[limit]=5`,
+    `${process.env.API_URL}api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Otaku&pagination[limit]=5`,
     {
       headers: headers,
     }
   );
 
   const travelBlogsRes = await fetch(
-    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Travel&pagination[limit]=5`,
+    `${process.env.API_URL}api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=Travel&pagination[limit]=5`,
     {
       headers: headers,
     }

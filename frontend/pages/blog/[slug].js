@@ -19,7 +19,7 @@ const Slug = ({ blogData }) => {
       </Head>
       <div className="my-20 mx-auto w-11/12 lg:w-[58rem]">
         <Image
-          src={`http://localhost:1337${blogData[0].attributes.cover.data.attributes.url}`}
+          src={`${blogData[0].attributes.cover.data.attributes.url}`}
           alt="title_img"
           width={958}
           height={459}
@@ -34,11 +34,7 @@ const Slug = ({ blogData }) => {
         <ReactMarkdown
           className={styles.reactMarkdown}
           children={blogData[0].attributes.blocks[0].body}
-          transformImageUri={(uri) =>
-            uri.startsWith("http")
-              ? uri
-              : `${process.env.REACT_APP_IMAGE_BASE_URL}${uri}`
-          }
+          transformImageUri={(uri) => (uri.startsWith("http") ? uri : `${uri}`)}
         />
       </div>
     </div>
@@ -54,14 +50,14 @@ export async function getServerSideProps(context) {
   let blogData;
 
   const categoryArrRes = await fetch(
-    `http://localhost:1337/api/categories?populate=*`,
+    `${process.env.API_URL}api/categories?populate=*`,
     {
       headers: headers,
     }
   );
 
   const blogDataRes = await fetch(
-    `http://localhost:1337/api/articles?populate=*&filters[slug]=${context.query.slug}`,
+    `${process.env.API_URL}api/articles?populate=*&filters[slug]=${context.query.slug}`,
     {
       headers: headers,
     }

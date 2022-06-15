@@ -21,7 +21,7 @@ MyApp.getInitialProps = async (ctx) => {
     Authorization: `Bearer ${process.env.BEARER_TOKEN}`,
   };
   try {
-    const res = await fetch(`http://localhost:1337/api/categories?populate=*`, {
+    const res = await fetch(`${process.env.API_URL}api/categories?populate=*`, {
       headers: headers,
     });
     json = await res.json();

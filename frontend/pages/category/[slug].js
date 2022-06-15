@@ -31,7 +31,7 @@ const Slug = ({ blogs }) => {
                 <div className="mx-4">
                   <a href={`/blog/${blog.attributes.slug}`}>
                     <Image
-                      src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
+                      src={`${blog.attributes.cover.data.attributes.url}`}
                       alt="img"
                       width={400}
                       height={200}
@@ -70,14 +70,14 @@ export async function getServerSideProps(context) {
   let blogs;
 
   const categoryArrRes = await fetch(
-    `http://localhost:1337/api/categories?populate=*`,
+    `${process.env.API_URL}api/categories?populate=*`,
     {
       headers: headers,
     }
   );
 
   const blogsRes = await fetch(
-    `http://localhost:1337/api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=${context.query.slug}&pagination[limit]=5`,
+    `${process.env.API_URL}api/articles?sort=createdAt%3Adesc&populate=*&filters[category][name]=${context.query.slug}&pagination[limit]=5`,
     {
       headers: headers,
     }

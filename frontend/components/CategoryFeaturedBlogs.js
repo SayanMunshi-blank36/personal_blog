@@ -61,7 +61,7 @@ const CategoryFeaturedBlogs = ({ category, blogs }) => {
             className="mx-auto w-3/4 lg:mx-0 lg:w-full"
           >
             <Image
-              src={`http://localhost:1337${blogs[0].attributes.cover.data.attributes.url}`}
+              src={`${blogs[0].attributes.cover.data.attributes.url}`}
               width={500}
               height={300}
               className="rounded-md mx-auto hover:opacity-95"
@@ -91,7 +91,7 @@ const CategoryFeaturedBlogs = ({ category, blogs }) => {
                 <a href={`/blog/${blog.attributes.slug}`}>
                   <Image
                     className="rounded-md"
-                    src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
+                    src={`${blog.attributes.cover.data.attributes.url}`}
                     width={500}
                     height={300}
                     className="hover:opacity-95"

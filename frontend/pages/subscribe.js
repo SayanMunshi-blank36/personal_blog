@@ -59,7 +59,7 @@ export async function getServerSideProps(context) {
   let categories;
 
   const categoryArrRes = await fetch(
-    `http://localhost:1337/api/categories?populate=*`,
+    `${process.env.API_URL}api/categories?populate=*`,
     {
       headers: headers,
     }
