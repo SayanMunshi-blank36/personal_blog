@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { FaTwitter, FaInstagram, FaReddit } from "react-icons/fa";
+import { FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const Intro = () => {
@@ -28,7 +28,13 @@ const Intro = () => {
             transition={{ delay: 1.2 }}
             className="text-3xl lg:text-5xl mr-2 text-primary cursor-pointer"
           >
-            <FaTwitter className="hover:scale-105 transition-all hover:text-secondary" />
+            <a
+              href="https://twitter.com/blank_36"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaTwitter className="hover:scale-105 transition-all hover:text-secondary" />
+            </a>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -36,7 +42,13 @@ const Intro = () => {
             transition={{ delay: 1.4 }}
             className="text-3xl lg:text-5xl mr-2 text-primary cursor-pointer"
           >
-            <FaInstagram className="hover:scale-105 transition-all hover:text-secondary" />
+            <a
+              href="https://www.instagram.com/sayanmunshi36/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaInstagram className="hover:scale-105 transition-all hover:text-secondary" />
+            </a>
           </motion.div>
           <motion.div
             initial={{ opacity: 0 }}
@@ -44,7 +56,13 @@ const Intro = () => {
             transition={{ delay: 1.6 }}
             className="text-3xl lg:text-5xl mr-2 text-primary cursor-pointer"
           >
-            <FaReddit className="hover:scale-105 transition-all hover:text-secondary" />
+            <a
+              href="https://www.linkedin.com/in/sayan-munshi-714a401b8/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <FaLinkedin className="hover:scale-105 transition-all hover:text-secondary" />
+            </a>
           </motion.div>
         </div>
       </div>
