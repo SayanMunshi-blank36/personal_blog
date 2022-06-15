@@ -29,26 +29,22 @@ const Slug = ({ blogs }) => {
                 className="md:flex w-11/12 mx-auto items-center justify-center mb-8"
               >
                 <div className="mx-4">
-                  <Link href={`/blog/${blog.attributes.slug}`}>
-                    <a>
-                      <Image
-                        src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
-                        alt="img"
-                        width={400}
-                        height={200}
-                        className="hover:opacity-95"
-                      />
-                    </a>
-                  </Link>
+                  <a href={`/blog/${blog.attributes.slug}`}>
+                    <Image
+                      src={`http://localhost:1337${blog.attributes.cover.data.attributes.url}`}
+                      alt="img"
+                      width={400}
+                      height={200}
+                      className="hover:opacity-95"
+                    />
+                  </a>
                 </div>
                 <div className="mx-4">
-                  <Link href={`/blog/${blog.attributes.slug}`}>
-                    <a>
-                      <h2 className="font-extrabold text-xl md:text-2xl mb-2 hover:underline">
-                        {blog.attributes.title.toUpperCase()}
-                      </h2>
-                    </a>
-                  </Link>
+                  <a href={`/blog/${blog.attributes.slug}`}>
+                    <h2 className="font-extrabold text-xl md:text-2xl mb-2 hover:underline">
+                      {blog.attributes.title.toUpperCase()}
+                    </h2>
+                  </a>
                   <p className="md:text-lg mb-2">
                     {blog.attributes.description}
                   </p>
